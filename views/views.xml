@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <!--
+    <record model="ir.ui.view" id="kumori_demo.list">
+      <field name="name">kumori_demo list</field>
+      <field name="model">kumori_demo.kumori_demo</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+    -->
+
+    <!-- actions opening views on models -->
+    <!--
+    <record model="ir.actions.act_window" id="kumori_demo.action_window">
+      <field name="name">kumori_demo window</field>
+      <field name="res_model">kumori_demo.kumori_demo</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    -->
+
+    <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="kumori_demo.action_server">
+      <field name="name">kumori_demo server</field>
+      <field name="model_id" ref="model_kumori_demo_kumori_demo"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+    -->
+
+    <!-- Top menu item -->
+    <!--
+    <menuitem name="kumori_demo" id="kumori_demo.menu_root"/>
+    -->
+    <!-- menu categories -->
+    <!--
+    <menuitem name="Menu 1" id="kumori_demo.menu_1" parent="kumori_demo.menu_root"/>
+    <menuitem name="Menu 2" id="kumori_demo.menu_2" parent="kumori_demo.menu_root"/>
+    -->
+    <!-- actions -->
+    <!--
+    <menuitem name="List" id="kumori_demo.menu_1_list" parent="kumori_demo.menu_1"
+              action="kumori_demo.action_window"/>
+    <menuitem name="Server to list" id="kumori_demo" parent="kumori_demo.menu_2"
+              action="kumori_demo.action_server"/>
+    -->
+  </data>
+</odoo>
