@@ -1,14 +1,10 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "kumori_demo",
+    'name': "Kumori Demo Custom Module",
 
-    'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
+    'summary': "This is the practice for custom module",
 
-    'description': """
-        Long description of module's purpose
-    """,
+    'description': "",
 
     'author': "My Company",
     'website': "http://www.yourcompany.com",
@@ -20,7 +16,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base', 'hr', 'fleet'],
 
     # always loaded
     'data': [
