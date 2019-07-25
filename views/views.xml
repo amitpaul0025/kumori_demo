@@ -1,60 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
 <odoo>
   <data>
-    <!-- explicit list view definition -->
-    <!--
-    <record model="ir.ui.view" id="kumori_demo.list">
-      <field name="name">kumori_demo list</field>
-      <field name="model">kumori_demo.kumori_demo</field>
+    <record id="view_kumori_request_form" model="ir.ui.view">
+      <field name="name">view.kumori.request.form</field>
+      <field name="model">kumori.request</field>
       <field name="arch" type="xml">
-        <tree>
-          <field name="name"/>
-          <field name="value"/>
-          <field name="value2"/>
+        <form name="Kumori Request Form">
+          <sheet>
+            <div class="oe_title">
+              <label for="name" class="oe_edit_only" />
+                <h1>
+                  <field name="name" placeholder="Request" />
+                </h1>
+            </div>
+            <group>
+              <group>
+                <field name="date_from" />
+                <field name="date_to" />
+              </group>
+              <group>
+                <field name="employee_id" />
+                <field name="car_id" />
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record id="view_kumori_request_tree" model="ir.ui.view">
+      <field name="name">view.kumori.request.tree</field>
+      <field name="model">kumori.request</field>
+      <field name="arch" type="xml">
+        <tree string="Kumori Request Tree">
+          <field name="name" />
+          <field name="employee_id" />
+          <field name="car_id" />
+          <field name="date_from" />
+          <field name="date_to" />
         </tree>
       </field>
     </record>
-    -->
 
-    <!-- actions opening views on models -->
-    <!--
-    <record model="ir.actions.act_window" id="kumori_demo.action_window">
-      <field name="name">kumori_demo window</field>
-      <field name="res_model">kumori_demo.kumori_demo</field>
-      <field name="view_mode">tree,form</field>
-    </record>
-    -->
 
-    <!-- server action to the one above -->
-    <!--
-    <record model="ir.actions.server" id="kumori_demo.action_server">
-      <field name="name">kumori_demo server</field>
-      <field name="model_id" ref="model_kumori_demo_kumori_demo"/>
-      <field name="state">code</field>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": self._name,
-        }
+    <record id="action_kumori_request_views" model="ir.actions.act_window">
+      <field name="name">Kumori Request</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">kumori.request</field>
+      <field name="view_mode">tree,view</field>
+      <field name="view_ids" eval="[(5, 0, 0), 
+        (0, 0, {'view_mode': 'tree'}), 
+        (0, 0, {'view_mode': 'form', 'view_id': ref('product_variant_easy_edit_view')}),                           
+        (0, 0, {'view_mode': 'kanban'})]"/>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          Kumori Request
+        </p>
+        <p>
+          Click to add a car request
+        </p>
       </field>
     </record>
-    -->
 
-    <!-- Top menu item -->
-    <!--
-    <menuitem name="kumori_demo" id="kumori_demo.menu_root"/>
-    -->
-    <!-- menu categories -->
-    <!--
-    <menuitem name="Menu 1" id="kumori_demo.menu_1" parent="kumori_demo.menu_root"/>
-    <menuitem name="Menu 2" id="kumori_demo.menu_2" parent="kumori_demo.menu_root"/>
-    -->
-    <!-- actions -->
-    <!--
-    <menuitem name="List" id="kumori_demo.menu_1_list" parent="kumori_demo.menu_1"
-              action="kumori_demo.action_window"/>
-    <menuitem name="Server to list" id="kumori_demo" parent="kumori_demo.menu_2"
-              action="kumori_demo.action_server"/>
-    -->
+
+    <menuitem id="menu_kumori_request_root" name="Kumori Request" sequence="1" />
+    <menuitem id="menu_kumori_request_categ" name="Kumori Request" parent="menu_kumori_request_root" sequence="1" />
+    <menuitem id="menu_kumori_request" name="Kumori Request" parent="menu_kumori_request_categ" action="action_kumori_request_views" sequence="1" />
+
+
   </data>
 </odoo>
